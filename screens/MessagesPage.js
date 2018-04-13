@@ -24,22 +24,17 @@ type Props = {
     navigation: NavigationScreenProp<NavigationState>
 };
 
-class HomePage extends Component<Props>
+class MessagesPage extends Component<Props>
 {
-    constructor(props: Props)
-    {
-        super(props);
-    }
-
     render()
     {
         const {navigate} = this.props.navigation;
-        const TITLE: string = 'Portafoglio';
+        const TITLE: string = 'Messaggi';
 
         return (
 
             <AweTabsLayout title={TITLE} navigation={navigate}>
-                <H2 style={Styles.titleStyle}>Portafoglio</H2>
+                <H2 style={Styles.titleStyle}>{TITLE}</H2>
                 <Text>{instructions}</Text>
                 <Button style={{marginTop: 100}} small success title="Logout" onPress={() => navigate('Login')}>
                     <Text>Logout</Text>
@@ -50,6 +45,4 @@ class HomePage extends Component<Props>
     }
 }
 
-export default HomePage;
-
-
+export default MessagesPage;

@@ -6,7 +6,7 @@
  */
 
 import * as React from 'react';
-
+import Styles from "../styles";
 import {Button, Form, H2, Input, Item, Text, Thumbnail} from "native-base";
 import AweLayout from "../components/layout";
 import {
@@ -20,13 +20,6 @@ type Props = {
     navigation: NavigationScreenProp<NavigationState>
 };
 
-const titleStyle = {
-    marginTop: 70,
-    fontFamily: "Titillium Web",
-    fontWeight: "bold",
-    color: "rgb(150,150,150)"
-};
-
 class FakeLogin extends React.Component<Props>
 {
 
@@ -37,9 +30,12 @@ class FakeLogin extends React.Component<Props>
         const TITLE = 'LOGIN';
         const LOGO = require('../img/logo-it.png');
 
+        console.log('Rendering FakeLogin');
+        console.log('Nav:' + JSON.stringify(navigate.state));
+
         return (
 
-            <AweLayout title={TITLE}>
+            <AweLayout title={TITLE} navigation={navigate}>
 
                 <Grid style={{marginTop: 30}}>
                     <Col size={2}/>
@@ -49,7 +45,7 @@ class FakeLogin extends React.Component<Props>
                     <Col size={2}/>
                 </Grid>
 
-                <H2 style={titleStyle}>Accedi</H2>
+                <H2 style={Styles.titleStyle}>Accedi</H2>
                 <Form style={{marginTop: 30}}>
                     <Item>
                         <Input placeholder="Nome Utente o eMail"/>
