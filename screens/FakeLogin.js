@@ -1,12 +1,24 @@
-import React, {Component} from 'react';
-import {Button, Container, Content, Form, Input, Item, StyleProvider, Text} from "native-base";
-import AweHeader from "../components/header";
-import AweFooter from "../components/footer";
-import material from "../native-base-theme/variables/material";
-import getTheme from "../native-base-theme/components";
+/**
+ * AWESOME PA
+ * A React Native App
+ *
+ * @flow
+ */
 
+import * as React from 'react';
 
-class FakeLogin extends Component<Props>
+import {Button, Form, Input, Item, Text} from "native-base";
+import AweLayout from "../components/layout";
+import {
+  type NavigationScreenProp,
+  type NavigationState
+} from 'react-navigation'
+
+type Props = {
+    navigation: NavigationScreenProp<NavigationState>
+};
+
+class FakeLogin extends React.Component<Props>
 {
 
     render()
@@ -17,30 +29,22 @@ class FakeLogin extends Component<Props>
 
         return (
 
-            <StyleProvider style={getTheme(material)}>
-                <Container>
-                    <AweHeader title={TITLE}/>
+            <AweLayout title={TITLE}>
 
-                    <Content padder={true}>
+                <Form style={{marginTop: 50}}>
+                    <Item>
+                        <Input placeholder="Username"/>
+                    </Item>
+                    <Item last>
+                        <Input placeholder="Password"/>
+                    </Item>
+                </Form>
 
-                        <Form style={{marginTop: 50}}>
-                            <Item>
-                                <Input placeholder="Username"/>
-                            </Item>
-                            <Item last>
-                                <Input placeholder="Password"/>
-                            </Item>
-                        </Form>
+                <Button style={{marginTop: 30}} block title="Login" onPress={() => navigate('Home')}>
+                    <Text>Login</Text>
+                </Button>
 
-                        <Button style={{marginTop: 30}} block title="Login" onPress={() => navigate('Home')}>
-                            <Text>Login</Text>
-                        </Button>
-
-
-                    </Content>
-                    <AweFooter/>
-                </Container>
-            </StyleProvider>
+            </AweLayout>
         );
     }
 }

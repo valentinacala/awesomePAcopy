@@ -1,3 +1,11 @@
+/**
+ * AWESOME PA
+ * A React Native App
+ *
+ * @flow
+ */
+
+
 import {
   SwitchNavigator,
 } from 'react-navigation';

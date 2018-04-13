@@ -1,11 +1,16 @@
+/**
+ * AWESOME PA
+ * A React Native App
+ *
+ * @flow
+ */
+
 import React, {Component} from 'react';
 import {Platform} from 'react-native';
 
-import {Button, Container, Content, StyleProvider, Text} from "native-base";
-import AweHeader from "../components/header";
-import AweFooter from "../components/footer";
-import getTheme from '../native-base-theme/components';
-import material from '../native-base-theme/variables/material';
+import {Button, Text} from "native-base";
+import type {NavigationScreenProp, NavigationState} from "react-navigation";
+import AweLayout from "../components/layout";
 
 
 const instructions = Platform.select({
@@ -14,6 +19,10 @@ const instructions = Platform.select({
     android: 'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
+
+type Props = {
+    navigation: NavigationScreenProp<NavigationState>
+};
 
 class HomePage extends Component<Props>
 {
@@ -24,26 +33,20 @@ class HomePage extends Component<Props>
 
         return (
 
-            <StyleProvider style={getTheme(material)}>
-                <Container>
-                    <AweHeader title={TITLE}/>
-                    <Content>
-                        <Text>
-                            AwesomePA
-                        </Text>
-                        <Text>
-                            Home Page
-                        </Text>
-                        <Text>
-                            {instructions}
-                        </Text>
-                        <Button title="Logout" onPress={() => navigate('Login')}>
-                            <Text>Logout</Text>
-                        </Button>
-                    </Content>
-                    <AweFooter/>
-                </Container>
-            </StyleProvider>
+            <AweLayout title={TITLE}>
+                <Text>
+                    AwesomePA
+                </Text>
+                <Text>
+                    Home Page
+                </Text>
+                <Text>
+                    {instructions}
+                </Text>
+                <Button title="Logout" onPress={() => navigate('Login')}>
+                    <Text>Logout</Text>
+                </Button>
+            </AweLayout>
 
         );
     }
