@@ -36,9 +36,6 @@ class SettingsPage extends Component<Props>
             <AweTabsLayout title={TITLE} navigation={navigate}>
                 <H2 style={Styles.titleStyle}>{TITLE}</H2>
                 <Text>{instructions}</Text>
-                <Button style={{marginTop: 100}} small success title="Logout" onPress={() => navigate('Login')}>
-                    <Text>Logout</Text>
-                </Button>
             </AweTabsLayout>
 
         );
