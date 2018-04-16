@@ -32,6 +32,13 @@ type Operation = {
     isNew: boolean
 }
 
+const unknownCard: CreditCard = {
+        text: 'Unknows',
+        name: '???',
+        number: '0',
+        image: null
+    };
+
 const operations: Array<Operation> = [
     {
         date: 'Ieri alle 07.34',
@@ -53,15 +60,14 @@ const operations: Array<Operation> = [
         location: 'Busto Arsizio',
         amount: -134.00,
         isNew: false
-    }];
+    }
+    ];
 
 class TransactionsPage extends Component<Props>
 {
 
-
     renderRow(operation: Operation) {
-      const isNew = operation.isNew;
-      if (isNew) {
+      if (operation.isNew) {
         return (
             <Row>
                 <Icon type="FontAwesome" name="circle" active
@@ -77,7 +83,7 @@ class TransactionsPage extends Component<Props>
     {
         const {navigate} = this.props.navigation;
         const {params} = this.props.navigation.state;
-        const card: CreditCard = params ? params.card : "";
+        const card: CreditCard = params ? params.card : unknownCard;
         const TITLE: string = 'OPERAZIONI';
 
         return (
