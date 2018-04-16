@@ -9,41 +9,18 @@ import React, {Component} from 'react';
 import {Image} from 'react-native';
 
 import {Body, Button, Card, CardItem, DeckSwiper, H2, Icon, Left, Text, Thumbnail, View} from "native-base";
-import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
-import type {CreditCard} from "../types/CreditCard";
+
+
+import type {NavigationScreenProp, NavigationState} from "react-navigation";
+import PortfolioAPI from "../mocked-api/portfolio";
 
 type Props = {
     navigation: NavigationScreenProp<NavigationState>
 };
 
-const cards: Array<CreditCard> = [
-    {
-        text: 'American Express',
-        name: 'Nessuna transazione',
-        number: '3759 876543 21001',
-        image: require('../img/amex-cc.jpg')
-    },
-    {
-        text: 'VISA',
-        name: 'Ultimo utilizzo ieri alle 07.34',
-        number: '4000 1234 5678 9010',
-        image: require('../img/visa-cc.jpg')
-    },
-    {
-        text: 'Mastercard',
-        name: 'Ci sono due nuove transazioni',
-        number: '5412 7556 7890 0000',
-        image: require('../img/mastercard-cc.png')
-    },
-    {
-        text: 'RedCard',
-        name: 'Nessuna transazione',
-        number: '4000 1234 5678 9010',
-        image: require('../img/simple-cc.png')
-    }
-];
+const cards = PortfolioAPI.getCreditCards();
 
 class PortfolioPage extends Component<Props>
 {

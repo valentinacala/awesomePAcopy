@@ -6,6 +6,7 @@
  */
 
 export type Operation = {
+    cardId: number,
     date: string,
     subject: string,
     location: string,

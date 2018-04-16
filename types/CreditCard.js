@@ -6,6 +6,7 @@
  */
 
 export type CreditCard = {
+    id: number,
     text: string,
     name: string,
     number: string,
