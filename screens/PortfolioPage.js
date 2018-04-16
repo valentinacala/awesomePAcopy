@@ -12,7 +12,7 @@ import {Body, Button, Card, CardItem, DeckSwiper, H2, Icon, Left, Text, Thumbnai
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
-import {CreditCard} from "../types/CreditCard";
+import type {CreditCard} from "../types/CreditCard";
 
 type Props = {
     navigation: NavigationScreenProp<NavigationState>
