@@ -51,7 +51,7 @@ class FakeLogin extends React.Component<Props>
                         <Input placeholder="Nome Utente o eMail"/>
                     </Item>
                     <Item last>
-                        <Input placeholder="Password"/>
+                        <Input secureTextEntry placeholder="Password"/>
                     </Item>
                 </Form>
 
