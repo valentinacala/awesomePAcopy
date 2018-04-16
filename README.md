@@ -1,5 +1,11 @@
 ## AWESOME PROJECT
 
+### Build
+
+When first run, link libraries/fonts with
+
+     react-native link    
+
 ### Run
 
 #### iOS
@@ -10,4 +16,6 @@
 
     react-native run-android
     
+    
+
     

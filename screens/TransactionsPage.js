@@ -7,7 +7,7 @@
 
 import React, {Component} from 'react';
 
-import {Body, Button, Grid, H2, Left, List, ListItem, Right, Row, Text, Thumbnail} from "native-base";
+import {Body, Button, Grid, H2, Icon, Left, List, ListItem, Right, Row, Text, Thumbnail} from "native-base";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
@@ -57,6 +57,22 @@ const operations: Array<Operation> = [
 
 class TransactionsPage extends Component<Props>
 {
+
+
+    renderRow(operation: Operation) {
+      const isNew = operation.isNew;
+      if (isNew) {
+        return (
+            <Row>
+                <Icon type="FontAwesome" name="circle" active
+                         style={{marginTop: 6, fontSize: 10, color: '#0066CC'}} />
+                <Text note>{operation.date}</Text>
+            </Row>
+        )
+      }
+        return <Row><Text note>{operation.date}</Text></Row>
+    }
+
     render()
     {
         const {navigate} = this.props.navigation;
@@ -68,7 +84,7 @@ class TransactionsPage extends Component<Props>
 
             <AweTabsLayout title={TITLE}>
 
-                <Grid>
+                <Grid >
                     <Row size={1}>
                         <Text note>{card.text} - {card.number}</Text>
                     </Row>
@@ -77,7 +93,7 @@ class TransactionsPage extends Component<Props>
                             <H2 style={Styles.titleStyle}>{TITLE}</H2>
                         </Left>
                         <Right>
-                            <Text>Totale EUR</Text>
+                            <Text note>Totale EUR</Text>
                         </Right>
                     </Row>
 
@@ -88,9 +104,7 @@ class TransactionsPage extends Component<Props>
                             <ListItem>
                                 <Body>
                                 <Grid>
-                                    <Row>
-                                        <Text note>{item.date}</Text>
-                                    </Row>
+                                    {this.renderRow(item)}
                                     <Row>
                                         <Left>
                                             <Text>{item.subject}</Text>
