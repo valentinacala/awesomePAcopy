@@ -17,6 +17,7 @@ import SettingsPage from "./screens/SettingsPage";
 import MessagesPage from "./screens/MessagesPage";
 import ProfilePage from "./screens/ProfilePage";
 import TransactionsPage from "./screens/TransactionsPage";
+import NavigationTestPage from "./screens/NavigationTestPage";
 
 const App = SwitchNavigator({
     Login: { screen: FakeLogin },
@@ -24,8 +25,9 @@ const App = SwitchNavigator({
     Docs: { screen: DocsPage },
     Messages: { screen: MessagesPage },
     Profile: { screen: ProfilePage },
-    Settings: { screen: SettingsPage },
     Transactions: { screen: TransactionsPage },
+    Settings: { screen: SettingsPage }, 
+    NavigationTest: { screen: NavigationTestPage },
 });
 
 export default App;
