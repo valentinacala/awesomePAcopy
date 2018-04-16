@@ -11,26 +11,13 @@ import {Body, Button, Grid, H2, Icon, Left, List, ListItem, Right, Row, Text, Th
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
-
-type CreditCard = {
-    text: string,
-    name: string,
-    number: string,
-    image: any
-};
+import {CreditCard} from "../types/CreditCard"
+import {Operation} from "../types/Operation";
 
 type Props = {
     navigation: NavigationScreenProp<NavigationState>,
     card: CreditCard
 };
-
-type Operation = {
-    date: string,
-    subject: string,
-    location: string,
-    amount: number,
-    isNew: boolean
-}
 
 const unknownCard: CreditCard = {
         text: 'Unknows',
