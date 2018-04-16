@@ -8,7 +8,7 @@
 import React, {Component} from 'react';
 import {Image} from 'react-native';
 
-import {Body, Button, Card, CardItem, DeckSwiper, H2, Icon, Left, Text, Thumbnail} from "native-base";
+import {Body, Button, Card, CardItem, DeckSwiper, H2, Icon, Left, Text, Thumbnail, View} from "native-base";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
@@ -68,6 +68,7 @@ class PortfolioPage extends Component<Props>
             <AweTabsLayout title={TITLE} navigation={navigate}>
                 <H2 style={Styles.titleStyle}>Portafoglio</H2>
                 <Text style={Styles.titleStyle}>Metodi di pagamento</Text>
+                <View style={{minHeight: 500}}>
                 <DeckSwiper
                     dataSource={cards}
                     renderItem={item =>
@@ -94,6 +95,7 @@ class PortfolioPage extends Component<Props>
                         </Card>
                     }
                 />
+                </View>
             </AweTabsLayout>
 
         );

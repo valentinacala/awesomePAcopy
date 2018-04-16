@@ -26,7 +26,7 @@ class FTabs extends Component<Props>
     render()
     {
         const {navigate} = this.props.navigation;
-        const iconText = {fontSize: 9};
+        const iconText = {fontSize: 8};
 
         return (
             <Footer>
