@@ -119,10 +119,10 @@ const operations: Array<Operation> = [
         location: 'Milano - via Parini 12',
         amount: -100.00,
         isNew: false
-    },
+    }
 
 
-    ];
+];
 
 class PortfolioAPI
 {
