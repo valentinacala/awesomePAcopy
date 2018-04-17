@@ -5,7 +5,7 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import * as React from 'react'
 
 import Styles from "../styles";
 import {Button, Grid, H2, Left, Right, Row, Col, Text} from "native-base";
@@ -41,14 +41,14 @@ type Props = {
     card: CreditCard
 };
 
-class DetailsPage extends Component<Props>
+class DetailsPage extends React.Component<Props>
 {
     constructor(props: Props)
     {
         super(props);
     }
 
-    render()
+    render(): React.Node
     {
         const {navigate} = this.props.navigation;
         const TITLE: string = 'Dettagli dell\'operazione';

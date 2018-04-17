@@ -5,7 +5,7 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import * as React from 'react'
 import {Image} from 'react-native';
 
 import {Body, Button, Card, CardItem, DeckSwiper, H2, Icon, Left, Text, Thumbnail, View} from "native-base";
@@ -22,14 +22,14 @@ type Props = {
 
 const cards = PortfolioAPI.getCreditCards();
 
-class PortfolioPage extends Component<Props>
+class PortfolioPage extends React.Component<Props>
 {
     constructor(props: Props)
     {
         super(props);
     }
 
-    render()
+    render(): React.Node
     {
         const {navigate} = this.props.navigation;
         const TITLE: string = 'Portafoglio';

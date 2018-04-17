@@ -5,14 +5,14 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import * as React from 'react'
 import {Body, Button, Header, Icon, Left, Right, Title} from "native-base";
 
 type Props = {
     title?: string
 };
 
-class AweHeader extends Component<Props>
+class AweHeader extends React.Component<Props>
 {
     constructor(props: Props)
     {
@@ -20,7 +20,7 @@ class AweHeader extends Component<Props>
         this.props.title = 'TITLE';
     }
 
-    render()
+    render(): React.Node
     {
         return (
 

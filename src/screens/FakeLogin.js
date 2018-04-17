@@ -6,6 +6,7 @@
  */
 
 import * as React from 'react';
+
 import Styles from "../styles";
 import {Button, Form, H2, Input, Item, Text, Thumbnail} from "native-base";
 import AweLayout from "../components/layout";
@@ -23,7 +24,7 @@ type Props = {
 class FakeLogin extends React.Component<Props>
 {
 
-    render()
+    render(): React.Node
     {
 
         const {navigate} = this.props.navigation;

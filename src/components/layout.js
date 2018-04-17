@@ -8,29 +8,26 @@
 import * as React from 'react';
 
 import {Container, Content, StyleProvider} from "native-base";
-import getTheme from "../native-base-theme/components";
-import material from "../native-base-theme/variables/material";
+import getTheme from "../../native-base-theme/components";
+import material from "../../native-base-theme/variables/material";
 import AweHeader from "./header";
-import FTabs from "./ftabs";
-import type {NavigationScreenProp, NavigationState} from "react-navigation";
-import { withNavigation } from "react-navigation";
+import AweFooter from "./footer";
 
 type Props = {
     children?: React.Node,
-    title?: string,
-    navigation: NavigationScreenProp<NavigationState>
+    title?: string
 };
 
-class AweTabsLayout extends React.Component<Props>
+class AweLayout extends React.Component<Props>
 {
     constructor(props: Props)
     {
         super(props);
+        this.props.title = 'TITLE';
     }
 
-    render()
+    render(): React.Node
     {
-
         return (
 
             <StyleProvider style={getTheme(material)}>
@@ -41,7 +38,7 @@ class AweTabsLayout extends React.Component<Props>
                         {this.props.children}
                     </Content>
 
-                    <FTabs title={this.props.title} />
+                    <AweFooter/>
                 </Container>
             </StyleProvider>
 
@@ -49,4 +46,4 @@ class AweTabsLayout extends React.Component<Props>
     }
 }
 
-export default withNavigation(AweTabsLayout);
+export default AweLayout;

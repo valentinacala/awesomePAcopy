@@ -1,0 +1,65 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:flowtype/recommended",
+        "plugin:react/recommended",
+        "plugin:jest/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "globals": {
+        "__DEV__": true,
+        "__PROD__": true
+    },
+    "plugins": [
+        "flowtype",
+        "react",
+        "jest"
+    ],
+    "rules": {
+        "eqeqeq": 2,
+        "consistent-return": 2,
+        "curly": 2,
+        "strict": 2,
+        "handle-callback-err": 1,
+        "id-length": [
+            2,
+            {
+                "min": 2
+            }
+        ],
+        "no-eval": 2,
+        "no-magic-numbers": 0,
+        "no-console": 0,
+        "no-param-reassign": 1,
+        "no-trailing-spaces": 2,
+        "no-unused-expressions": 2,
+        "no-use-before-define": 2,
+        "no-var": 2,
+        "prefer-arrow-callback": 2,
+        "prefer-const": 2,
+        "require-jsdoc": 0,
+        "flowtype/no-mutable-array": 0,
+        "flowtype/no-weak-types": 2,
+        "flowtype/require-return-type": [
+            2,
+            "always",
+            {
+              "excludeArrowFunctions": true
+            }
+        ],
+        "react/jsx-uses-vars": 2,
+        "react/jsx-no-literals": 0
+    }
+}

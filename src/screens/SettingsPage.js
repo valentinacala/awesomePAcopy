@@ -5,10 +5,10 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import * as React from 'react'
 import {Platform} from 'react-native';
 
-import {Button, H2, Text} from "native-base";
+import {H2, Text} from "native-base";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
@@ -24,25 +24,22 @@ type Props = {
     navigation: NavigationScreenProp<NavigationState>
 };
 
-class MessagesPage extends Component<Props>
+class SettingsPage extends React.Component<Props>
 {
-    render()
+    render(): React.Node
     {
         const {navigate} = this.props.navigation;
-        const TITLE: string = 'Messaggi';
+        const TITLE: string = 'Preferenze';
 
         return (
 
             <AweTabsLayout title={TITLE} navigation={navigate}>
                 <H2 style={Styles.titleStyle}>{TITLE}</H2>
                 <Text>{instructions}</Text>
-                <Button style={{marginTop: 100}} small success title="Logout" onPress={() => navigate('Login')}>
-                    <Text>Logout</Text>
-                </Button>
             </AweTabsLayout>
 
         );
     }
 }
 
-export default MessagesPage;
+export default SettingsPage;

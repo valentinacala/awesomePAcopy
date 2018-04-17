@@ -5,10 +5,9 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform} from 'react-native';
+import * as React from 'react'
 
-import {Button, H2, Text} from "native-base";
+import {H2, Text} from "native-base";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
@@ -17,11 +16,10 @@ type Props = {
     navigation: NavigationScreenProp<NavigationState>
 };
 
-class DocumentsPage extends Component<Props>
+class DocumentsPage extends React.Component<Props>
 {
-    render()
+    render(): React.Node
     {
-        const {navigate} = this.props.navigation;
         const TITLE: string = 'Documenti';
 
         return (

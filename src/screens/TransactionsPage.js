@@ -5,7 +5,7 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import * as React from 'react'
 
 import {Body, Button, Grid, H2, Icon, Left, List, ListItem, Right, Row, Text} from "native-base";
 import AweTabsLayout from "../components/tabslayout";
@@ -29,10 +29,10 @@ const unknownCard: CreditCard = {
     image: null
 };
 
-class TransactionsPage extends Component<Props>
+class TransactionsPage extends React.Component<Props>
 {
 
-    renderDate(operation: Operation)
+    renderDate(operation: Operation): React.Node
     {
         const datetime: string = `${operation.date} - ${operation.time}`;
         if (operation.isNew)
@@ -48,13 +48,13 @@ class TransactionsPage extends Component<Props>
         return <Row><Text note>{datetime}</Text></Row>
     }
 
-    renderOperations(operations: Array<Operation>)
+    renderOperations(operations: Array<Operation>): React.Node
     {
         const {navigate} = this.props.navigation;
         const {params} = this.props.navigation.state;
         const card: CreditCard = params ? params.card : unknownCard;
 
-        if (operations === undefined || operations.length === 0)
+        if (operations === undefined || operations.length < 1)
         {
             return <Text>Non ci sono operazioni.</Text>
         }
@@ -86,7 +86,7 @@ class TransactionsPage extends Component<Props>
         )
     }
 
-    render()
+    render(): React.Node
     {
         const {navigate} = this.props.navigation;
         const {params} = this.props.navigation.state;

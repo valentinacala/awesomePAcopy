@@ -6,16 +6,17 @@
  */
 
 
-import React, {Component} from 'react';
+import * as React from 'react'
 import {Button, Footer, FooterTab, Text} from "native-base";
+
 
 type Props = {
 };
 
-class AweFooter extends Component<Props>
+class AweFooter extends React.Component<Props>
 {
 
-    render()
+    render(): React.Node
     {
         return (
 

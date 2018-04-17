@@ -10,6 +10,6 @@ export type CreditCard = {
     brand: string,
     lastUsage: string,
     number: string,
-    image: any
+    image: any // eslint-disable-line flowtype/no-weak-types
 };
 
