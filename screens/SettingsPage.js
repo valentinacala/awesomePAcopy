@@ -8,7 +8,7 @@
 import React, {Component} from 'react';
 import {Platform} from 'react-native';
 
-import {Button, H2, Text} from "native-base";
+import {H2, Text} from "native-base";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";

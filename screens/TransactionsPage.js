@@ -51,6 +51,8 @@ class TransactionsPage extends Component<Props>
     renderOperations(operations: Array<Operation>)
     {
         const {navigate} = this.props.navigation;
+        const {params} = this.props.navigation.state;
+        const card: CreditCard = params ? params.card : unknownCard;
 
         if (operations === undefined || operations.length === 0)
         {
@@ -61,7 +63,7 @@ class TransactionsPage extends Component<Props>
 
             <List style={{marginTop: 20}} dataArray={operations} renderRow={item =>
 
-                <ListItem onPress={() => navigate('Details', { operation: item })} >
+                <ListItem onPress={() => navigate('Details', { operation: item, card: card })} >
                     <Body>
                     <Grid>
                         {this.renderDate(item)}
@@ -94,7 +96,7 @@ class TransactionsPage extends Component<Props>
 
         return (
 
-            <AweTabsLayout title={TITLE}>
+            <AweTabsLayout title='Portafoglio'>
 
                 <Grid>
                     <Row size={1}>

@@ -11,6 +11,7 @@ import Styles from "../styles";
 import {Button, Grid, H2, Left, Right, Row, Col, Text} from "native-base";
 import AweTabsLayout from "../components/tabslayout";
 import type {Operation} from "../types/Operation";
+import type {CreditCard} from "../types/CreditCard";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 
 const unknownOperation: Operation =
@@ -21,13 +22,23 @@ const unknownOperation: Operation =
     subject: 'UNKNOWN OPERATION',
     recipient: '',
     amount: 0,
+    currency: '?',
     transactionCost: 0,
     isNew: false
 };
 
+const unknownCard: CreditCard = {
+    id: -1,
+    brand: 'Unknown',
+    lastUsage: '???',
+    number: '0',
+    image: null
+};
+
 type Props = {
     navigation: NavigationScreenProp<NavigationState>,
-    operation: Operation
+    operation: Operation,
+    card: CreditCard
 };
 
 class DetailsPage extends Component<Props>
@@ -43,9 +54,10 @@ class DetailsPage extends Component<Props>
         const TITLE: string = 'Dettagli dell\'operazione';
         const {params} = this.props.navigation.state;
         const operation: Operation = params ? params.operation : unknownOperation;
+        const card: CreditCard = params ? params.card : unknownCard;
 
         return (
-            <AweTabsLayout title={TITLE} navigation={navigate}>
+            <AweTabsLayout title='Portafoglio' navigation={navigate}>
                 <H2 style={Styles.titleStyle}>{TITLE}</H2>
                 <Grid style={{marginTop: 50}}>
                     <Row>
@@ -82,9 +94,10 @@ class DetailsPage extends Component<Props>
                                 <Text>Vedi la ricevuta</Text>
                             </Button>
                         </Col>
-                        <Col size={1}></Col>
+                        <Col size={1}/>
                         <Col size={5}>
-                            <Button style={{marginTop: 40}} block title="Receipt" onPress={() => navigate('Login')}>
+                            <Button style={{marginTop: 40}} block title="Back"
+                                    onPress={() => navigate('Transactions', { card: card })}>
                                 <Text>Torna</Text>
                             </Button>
                         </Col>
