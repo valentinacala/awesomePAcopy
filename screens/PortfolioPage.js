@@ -33,13 +33,14 @@ class PortfolioPage extends Component<Props>
     {
         const {navigate} = this.props.navigation;
         const TITLE: string = 'Portafoglio';
+        const ADDMETHOD: string = 'Aggiungi un metodo di pagamento';
 
         return (
 
             <AweTabsLayout title={TITLE} navigation={navigate}>
                 <H2 style={Styles.titleStyle}>Portafoglio</H2>
                 <Text style={Styles.titleStyle}>Metodi di pagamento</Text>
-                <View style={{minHeight: 500}}>
+                <View style={{minHeight: 400}}>
                 <DeckSwiper
                     dataSource={cards}
                     renderItem={item =>
@@ -48,7 +49,7 @@ class PortfolioPage extends Component<Props>
                                 <Left>
                                     <Thumbnail source={item.image}/>
                                     <Body>
-                                    <Text>{item.text}</Text>
+                                    <Text>{item.brand}</Text>
                                     <Text note>{item.number}</Text>
                                     </Body>
                                 </Left>
@@ -60,13 +61,16 @@ class PortfolioPage extends Component<Props>
                                 <Icon name="arrow-right" type="Feather" style={{color: '#0066CC'}}/>
                                 <Button transparent title="Transactions"
                                         onPress={() => navigate('Transactions', { card: item })} >
-                                    <Text>{item.name}</Text>
+                                    <Text>{item.lastUsage}</Text>
                                 </Button>
                             </CardItem>
                         </Card>
                     }
                 />
                 </View>
+                <Button block success title={ADDMETHOD} onPress={() => navigate('Home')}>
+                    <Text>{ADDMETHOD}</Text>
+                </Button>
             </AweTabsLayout>
 
         );

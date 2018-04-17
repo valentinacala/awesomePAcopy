@@ -7,10 +7,28 @@
 
 import React, {Component} from 'react';
 
-import {Component} from "react";
 import Styles from "../styles";
-import {Button, H2, Text} from "native-base";
+import {Button, Grid, H2, Left, Right, Row, Col, Text} from "native-base";
 import AweTabsLayout from "../components/tabslayout";
+import type {Operation} from "../types/Operation";
+import type {NavigationScreenProp, NavigationState} from "react-navigation";
+
+const unknownOperation: Operation =
+{
+    cardId: -1,
+    date: '',
+    time: '',
+    subject: 'UNKNOWN OPERATION',
+    recipient: '',
+    amount: 0,
+    transactionCost: 0,
+    isNew: false
+};
+
+type Props = {
+    navigation: NavigationScreenProp<NavigationState>,
+    operation: Operation
+};
 
 class DetailsPage extends Component<Props>
 {
@@ -22,15 +40,58 @@ class DetailsPage extends Component<Props>
     render()
     {
         const {navigate} = this.props.navigation;
-        const TITLE: string = 'Dettagli';
+        const TITLE: string = 'Dettagli dell\'operazione';
+        const {params} = this.props.navigation.state;
+        const operation: Operation = params ? params.operation : unknownOperation;
 
         return (
             <AweTabsLayout title={TITLE} navigation={navigate}>
                 <H2 style={Styles.titleStyle}>{TITLE}</H2>
-                <Text>xxx</Text>
-                <Button style={{marginTop: 100}} small success title="Logout" onPress={() => navigate('Login')}>
-                    <Text>Logout</Text>
-                </Button>
+                <Grid style={{marginTop: 50}}>
+                    <Row>
+                        <Left><Text>Totale {operation.currency}</Text></Left>
+                        <Right><Text style={Styles.boldStyle}>{operation.amount}</Text></Right>
+                    </Row>
+                    <Row>
+                        <Left><Text note>Importo da pagare</Text></Left>
+                        <Right><Text>{operation.amount}</Text></Right>
+                    </Row>
+                    <Row>
+                        <Left><Text note>Costo transazione</Text><Button transparent>Perché?</Button></Left>
+                        <Right><Text>{operation.transactionCost}</Text></Right>
+                    </Row>
+                    <Row>
+                        <Left><Text note>Causale</Text></Left>
+                        <Right><Text style={Styles.boldStyle}>{operation.subject}</Text></Right>
+                    </Row>
+                    <Row>
+                        <Left><Text note>Destinatario</Text></Left>
+                        <Right><Text style={Styles.boldStyle}>{operation.recipient}</Text></Right>
+                    </Row>
+                    <Row>
+                        <Left><Text note>Data</Text></Left>
+                        <Right><Text>{operation.date}</Text></Right>
+                    </Row>
+                    <Row>
+                        <Left><Text note>Ora</Text></Left>
+                        <Right><Text>{operation.time}</Text></Right>
+                    </Row>
+                    <Row>
+                        <Col size={5}>
+                            <Button style={{marginTop: 40}} block success title="Receipt" onPress={() => navigate('Login')}>
+                                <Text>Vedi la ricevuta</Text>
+                            </Button>
+                        </Col>
+                        <Col size={1}></Col>
+                        <Col size={5}>
+                            <Button style={{marginTop: 40}} block title="Receipt" onPress={() => navigate('Login')}>
+                                <Text>Torna</Text>
+                            </Button>
+                        </Col>
+                    </Row>
+                </Grid>
+
+
             </AweTabsLayout>
         );
     }

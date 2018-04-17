@@ -23,8 +23,8 @@ type Props = {
 
 const unknownCard: CreditCard = {
     id: -1,
-    text: 'Unknows',
-    name: '???',
+    brand: 'Unknows',
+    lastUsage: '???',
     number: '0',
     image: null
 };
@@ -34,21 +34,24 @@ class TransactionsPage extends Component<Props>
 
     renderDate(operation: Operation)
     {
+        const datetime: string = `${operation.date} - ${operation.time}`;
         if (operation.isNew)
         {
             return (
                 <Row>
                     <Icon type="FontAwesome" name="circle" active
                           style={{marginTop: 6, fontSize: 10, color: '#0066CC'}}/>
-                    <Text note>{operation.date}</Text>
+                    <Text note>{datetime}</Text>
                 </Row>
             )
         }
-        return <Row><Text note>{operation.date}</Text></Row>
+        return <Row><Text note>{datetime}</Text></Row>
     }
 
     renderOperations(operations: Array<Operation>)
     {
+        const {navigate} = this.props.navigation;
+
         if (operations === undefined || operations.length === 0)
         {
             return <Text>Non ci sono operazioni.</Text>
@@ -58,7 +61,7 @@ class TransactionsPage extends Component<Props>
 
             <List style={{marginTop: 20}} dataArray={operations} renderRow={item =>
 
-                <ListItem>
+                <ListItem onPress={() => navigate('Details', { operation: item })} >
                     <Body>
                     <Grid>
                         {this.renderDate(item)}
@@ -67,7 +70,7 @@ class TransactionsPage extends Component<Props>
                                 <Text>{item.subject}</Text>
                             </Left>
                             <Right>
-                                <Text>{item.amount}</Text>
+                                <Text>{item.amount} {item.currency}</Text>
                             </Right>
                         </Row>
                         <Row>
@@ -95,14 +98,14 @@ class TransactionsPage extends Component<Props>
 
                 <Grid>
                     <Row size={1}>
-                        <Text note>{card.text} - {card.number}</Text>
+                        <Text note>{card.brand} - {card.number}</Text>
                     </Row>
                     <Row size={1}>
                         <Left>
                             <H2 style={Styles.titleStyle}>{TITLE}</H2>
                         </Left>
                         <Right>
-                            <Text note>Totale EUR</Text>
+                            <Text note>Totale</Text>
                         </Right>
                     </Row>
                     <Row size={4}>

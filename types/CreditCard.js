@@ -7,8 +7,8 @@
 
 export type CreditCard = {
     id: number,
-    text: string,
-    name: string,
+    brand: string,
+    lastUsage: string,
     number: string,
     image: any
 };

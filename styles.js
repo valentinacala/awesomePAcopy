@@ -5,6 +5,11 @@ const Styles = StyleSheet.create({
         fontFamily: "Titillium Web",
         fontWeight: "bold",
         color: "rgb(150,150,150)"
+    },
+    boldStyle: {
+        fontFamily: "Titillium Web",
+        fontWeight: "bold",
+        color: "rgb(30,30,30)"
     }
 });
 
