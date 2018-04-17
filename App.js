@@ -17,6 +17,7 @@ import SettingsPage from "./screens/SettingsPage";
 import MessagesPage from "./screens/MessagesPage";
 import ProfilePage from "./screens/ProfilePage";
 import TransactionsPage from "./screens/TransactionsPage";
+import NavigationTestPage from "./screens/NavigationTestPage";
 import DetailsPage from "./screens/DetailsPage";
 
 const App = SwitchNavigator({
@@ -25,8 +26,9 @@ const App = SwitchNavigator({
     Docs: { screen: DocsPage },
     Messages: { screen: MessagesPage },
     Profile: { screen: ProfilePage },
-    Settings: { screen: SettingsPage },
     Transactions: { screen: TransactionsPage },
+    Settings: { screen: SettingsPage },
+    NavigationTest: { screen: NavigationTestPage },
     Details: { screen: DetailsPage }
 });
 
