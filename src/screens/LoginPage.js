@@ -21,7 +21,7 @@ type Props = {
     navigation: NavigationScreenProp<NavigationState>
 };
 
-class FakeLogin extends React.Component<Props>
+class LoginPage extends React.Component<Props>
 {
 
     render(): React.Node
@@ -56,7 +56,7 @@ class FakeLogin extends React.Component<Props>
                     </Item>
                 </Form>
 
-                <Button style={{marginTop: 50}} block title="Login" onPress={() => navigate('Home')}>
+                <Button style={{marginTop: 50}} block title="Login" onPress={() => navigate('Portfolio')}>
                     <Text>Continua</Text>
                 </Button>
                 <Button style={{marginTop: 10}} light block title="Login">
@@ -69,6 +69,6 @@ class FakeLogin extends React.Component<Props>
     }
 }
 
-export default FakeLogin;
+export default LoginPage;
 
 

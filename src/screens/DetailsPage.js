@@ -38,6 +38,7 @@ const unknownCard: CreditCard = {
 type Props = {
     navigation: NavigationScreenProp<NavigationState>,
     operation: Operation,
+    parent: string,
     card: CreditCard
 };
 
@@ -54,6 +55,7 @@ class DetailsPage extends React.Component<Props>
         const TITLE: string = 'Dettagli dell\'operazione';
         const {params} = this.props.navigation.state;
         const operation: Operation = params ? params.operation : unknownOperation;
+        const parent: string = params ? params.parent : '???';
         const card: CreditCard = params ? params.card : unknownCard;
 
         return (
@@ -97,7 +99,21 @@ class DetailsPage extends React.Component<Props>
                         <Col size={1}/>
                         <Col size={5}>
                             <Button style={{marginTop: 40}} block title="Back"
-                                    onPress={() => navigate('Transactions', { card: card })}>
+                                    onPress={
+
+                                        () =>
+                                        {
+                                            if (parent !== 'Portfolio' && card !== undefined)
+                                            {
+                                                navigate('Transactions', {card: card})
+                                            }
+                                            else
+                                            {
+                                                navigate('Portfolio')
+                                            }
+                                        }
+
+                                    }>
                                 <Text>Torna</Text>
                             </Button>
                         </Col>

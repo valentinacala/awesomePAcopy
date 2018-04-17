@@ -7,6 +7,7 @@
         "test": "jest",
         "flow": "flow",
         "lint": "eslint 'src/**/*.js'",
+        "pre-flight": "npm-run-all flow lint",
         "runios": "react-native run-ios",
         "runandroid": "react-native run-android"
     },
@@ -31,6 +32,7 @@
         "eslint-plugin-react": "^7.6.0",
         "flow-bin": "^0.67.1",
         "jest": "22.4.3",
+        "npm-run-all":"^4.1.2",
         "react-test-renderer": "16.3.1"
     },
     "jest": {

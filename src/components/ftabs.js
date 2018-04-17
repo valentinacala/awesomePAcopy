@@ -7,7 +7,7 @@
 
 import * as React from 'react'
 
-import {Button, Footer, FooterTab, Icon, Text} from "native-base";
+import {Badge, Button, Footer, FooterTab, Icon, Text} from "native-base";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import { withNavigation } from "react-navigation";
 
@@ -36,7 +36,7 @@ class FTabs extends React.Component<Props>
                         <Icon active={this.isActive('Messaggi')} type="Feather" name="mail"/>
                         <Text style={iconText}>Messaggi</Text>
                     </Button>
-                    <Button style={{padding:0}} active={this.isActive('Portafoglio')} title="Home" vertical onPress={() => navigate('Home')}>
+                    <Button style={{padding:0}} active={this.isActive('Portafoglio')} title="Home" vertical onPress={() => navigate('Portfolio')}>
                         <Icon active={this.isActive('Portafoglio')} name="wallet"/>
                         <Text style={iconText}>Portafoglio</Text>
                     </Button>

@@ -52,34 +52,23 @@ const operations: Array<Operation> = [
         isNew: true
     },
     {
-        cardId: 1,
-        date: '22/12/2017',
-        time: '14:23',
-        subject: 'Rimborso TARI 2012',
-        recipient: 'Comune di Gallarate',
-        amount: 150.20,
-        currency: 'EUR',
-        transactionCost: 0,
-        isNew: false
-    },
-    {
-        cardId: 1,
-        date: '17/12/2017',
-        time: '12:34',
-        subject: 'Ristorante I Pini',
-        recipient: 'Busto Arsizio',
-        transactionCost: 0,
-        amount: -134.00,
-        currency: 'EUR',
-        isNew: false
-    },
-    {
         cardId: 2,
         date: '16/04/2018',
         time: '15:01',
         subject: 'Spesa Supermarket',
         recipient: 'Segrate',
         amount: -74.10,
+        currency: 'EUR',
+        transactionCost: 0.50,
+        isNew: true
+    },
+    {
+        cardId: 4,
+        date: '15/04/2018',
+        time: '08:56',
+        subject: 'Prelievo contante',
+        recipient: 'Busto Arsizio',
+        amount: -200.00,
         currency: 'EUR',
         transactionCost: 0.50,
         isNew: true
@@ -94,28 +83,6 @@ const operations: Array<Operation> = [
         currency: 'USD',
         transactionCost: 0.50,
         isNew: false
-    },
-    {
-        cardId: 4,
-        date: '17/04/2018',
-        time: '08:56',
-        subject: 'Prelievo contante',
-        recipient: 'Busto Arsizio',
-        amount: -200.00,
-        currency: 'EUR',
-        transactionCost: 0.50,
-        isNew: true
-    },
-    {
-        cardId: 4,
-        date: '16/04/2018',
-        time: '09:02',
-        subject: 'Pagamento carta',
-        recipient: 'Agenzia nr.40',
-        amount: -89.90,
-        currency: 'EUR',
-        transactionCost: 0.50,
-        isNew: true
     },
     {
         cardId: 4,
@@ -140,8 +107,30 @@ const operations: Array<Operation> = [
         isNew: false
     },
     {
+        cardId: 1,
+        date: '22/12/2017',
+        time: '14:23',
+        subject: 'Rimborso TARI 2012',
+        recipient: 'Comune di Gallarate',
+        amount: 150.20,
+        currency: 'EUR',
+        transactionCost: 0,
+        isNew: false
+    },
+    {
+        cardId: 1,
+        date: '17/12/2017',
+        time: '12:34',
+        subject: 'Ristorante I Pini',
+        recipient: 'Busto Arsizio',
+        transactionCost: 0,
+        amount: -134.00,
+        currency: 'EUR',
+        isNew: false
+    },
+    {
         cardId: 4,
-        date: '23/12/2017',
+        date: '13/12/2017',
         time: '10:34',
         subject: 'Estetista Estella',
         recipient: 'Milano - via Parini 12',
@@ -162,9 +151,19 @@ class PortfolioAPI
         return cards;
     }
 
+    static getCreditCard(creditCardId: number): ?CreditCard
+    {
+        return cards.find( card => card.id === creditCardId);
+    }
+
     static getOperations(cardId: number): Array<Operation>
     {
         return operations.filter( operation => operation.cardId === cardId );
+    }
+
+    static getLatestOperations(): Array<Operation>
+    {
+        return operations.slice(1, 5);
     }
 
 }

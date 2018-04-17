@@ -6,21 +6,21 @@
  */
 
 import * as React from 'react'
-import {Image} from 'react-native';
-
-import {Body, Button, Card, CardItem, DeckSwiper, H2, Icon, Left, Text, Thumbnail, View} from "native-base";
+import {Image, TouchableHighlight, StyleSheet} from 'react-native';
+import {Button, Content, H2, Left, Row, Text, View} from "native-base";
 import AweTabsLayout from "../components/tabslayout";
 import Styles from "../styles";
-
+import OperationsList from "../components/operations";
 
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import PortfolioAPI from "../mocked-api/portfolio";
+import {Grid} from "react-native-easy-grid";
+import type {Operation} from "../types/Operation";
+import CustomLayout from "../components/custom-layout";
 
 type Props = {
     navigation: NavigationScreenProp<NavigationState>
 };
-
-const cards = PortfolioAPI.getCreditCards();
 
 class PortfolioPage extends React.Component<Props>
 {
@@ -34,44 +34,45 @@ class PortfolioPage extends React.Component<Props>
         const {navigate} = this.props.navigation;
         const TITLE: string = 'Portafoglio';
         const ADDMETHOD: string = 'Aggiungi un metodo di pagamento';
+        const cardsImage = require('../img/creditcards.jpg');
+        const latestOperations: Array<Operation> = PortfolioAPI.getLatestOperations();
 
         return (
 
-            <AweTabsLayout title={TITLE} navigation={navigate}>
-                <H2 style={Styles.titleStyle}>Portafoglio</H2>
-                <Text style={Styles.titleStyle}>Metodi di pagamento</Text>
-                <View style={{minHeight: 400}}>
-                <DeckSwiper
-                    dataSource={cards}
-                    renderItem={item =>
-                        <Card style={{elevation: 3}}>
-                            <CardItem>
-                                <Left>
-                                    <Thumbnail source={item.image}/>
-                                    <Body>
-                                    <Text>{item.brand}</Text>
-                                    <Text note>{item.number}</Text>
-                                    </Body>
-                                </Left>
-                            </CardItem>
-                            <CardItem cardBody>
-                                <Image style={{height: 200, flex: 1}} source={item.image}/>
-                            </CardItem>
-                            <CardItem>
-                                <Icon name="arrow-right" type="Feather" style={{color: '#0066CC'}}/>
-                                <Button transparent title="Transactions"
-                                        onPress={() => navigate('Transactions', { card: item })} >
-                                    <Text>{item.lastUsage}</Text>
-                                </Button>
-                            </CardItem>
-                        </Card>
-                    }
-                />
+            <CustomLayout title={TITLE} navigation={navigate}>
+
+                <Content padder>
+                    <Grid>
+                        <Row>
+                            <H2 style={Styles.titleStyle}>Portafoglio</H2>
+                        </Row>
+                        <Row>
+                            <Text style={Styles.titleStyle}>Metodi di pagamento</Text>
+                        </Row>
+                        <Row>
+                            <View style={Styles.container}>
+                                <TouchableHighlight onPress={() => navigate('CreditCards')}>
+                                    <Image style={Styles.image}
+                                           source={cardsImage}/>
+                                </TouchableHighlight>
+                            </View>
+                        </Row>
+                        <Row>
+                            <OperationsList parent='Portfolio' operations={latestOperations}/>
+                        </Row>
+                    </Grid>
+                </Content>
+
+                <View
+                    style={{
+                      padding: 10,
+                    }}>
+                    <Button success block title={ADDMETHOD} onPress={() => navigate('Portfolio')}>
+                        <Text>{ADDMETHOD}</Text>
+                    </Button>
                 </View>
-                <Button block success title={ADDMETHOD} onPress={() => navigate('Home')}>
-                    <Text>{ADDMETHOD}</Text>
-                </Button>
-            </AweTabsLayout>
+
+            </CustomLayout>
 
         );
     }

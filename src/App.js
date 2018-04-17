@@ -11,7 +11,7 @@ import {
 } from 'react-navigation';
 
 import PortfolioPage from "./screens/PortfolioPage";
-import FakeLogin from "./screens/FakeLogin";
+import LoginPage from "./screens/LoginPage";
 import DocsPage from "./screens/DocsPage";
 import SettingsPage from "./screens/SettingsPage";
 import MessagesPage from "./screens/MessagesPage";
@@ -19,10 +19,12 @@ import ProfilePage from "./screens/ProfilePage";
 import TransactionsPage from "./screens/TransactionsPage";
 import NavigationTestPage from "./screens/NavigationTestPage";
 import DetailsPage from "./screens/DetailsPage";
+import CreditCardsPage from "./screens/CreditCardsPage";
 
 const App = SwitchNavigator({
-    Login: { screen: FakeLogin },
-    Home: { screen: PortfolioPage },
+    Login: { screen: LoginPage },
+    Portfolio: { screen: PortfolioPage },
+    CreditCards: { screen: CreditCardsPage },
     Docs: { screen: DocsPage },
     Messages: { screen: MessagesPage },
     Profile: { screen: ProfilePage },
