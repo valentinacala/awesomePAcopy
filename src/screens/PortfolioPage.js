@@ -6,9 +6,8 @@
  */
 
 import * as React from 'react'
-import {Image, TouchableHighlight, StyleSheet} from 'react-native';
-import {Button, Content, H2, Left, Row, Text, View} from "native-base";
-import AweTabsLayout from "../components/tabslayout";
+import {Image, TouchableHighlight} from 'react-native';
+import {Button, Content, H2, Row, Text, View} from "native-base";
 import Styles from "../styles";
 import OperationsList from "../components/operations";
 

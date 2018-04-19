@@ -7,7 +7,7 @@
 
 import * as React from 'react'
 
-import {Badge, Button, Footer, FooterTab, Icon, Text} from "native-base";
+import {Button, Footer, FooterTab, Icon, Text} from "native-base";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import { withNavigation } from "react-navigation";
 
@@ -27,7 +27,7 @@ class FTabs extends React.Component<Props>
     render(): React.Node
     {
         const {navigate} = this.props.navigation;
-        const iconText = {fontSize: 9};
+        const iconText = {fontSize: 8};
 
         return (
             <Footer>

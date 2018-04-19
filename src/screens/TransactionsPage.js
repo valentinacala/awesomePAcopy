@@ -32,7 +32,6 @@ const unknownCard: CreditCard = {
 
 class TransactionsPage extends React.Component<Props>
 {
-    
     render(): React.Node
     {
         const {navigate} = this.props.navigation;
