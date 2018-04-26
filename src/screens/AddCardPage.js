@@ -6,7 +6,7 @@
  */
 
 import * as React from "react";
-import{Button, Container, List,ListItem, Content, Grid, Row, Col, Text, Form, Item,  Left, Right, Input, Label} from "native-base";
+import{Button, Grid,Text, Form, Col, Item, Input} from "native-base";
 import {FlatList, Image,TextInput, View} from "react-native";
 import type {NavigationScreenProp, NavigationState} from "react-navigation";
 import AweTabsLayout from "../components/tabslayout";

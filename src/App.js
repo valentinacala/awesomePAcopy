@@ -25,7 +25,6 @@ import AddCardPage from "./screens/AddCardPage";
 
 const App = SwitchNavigator({
     
-    AddCard: {screen: AddCardPage},  
     AddPaymentMethod: { screen: AddPaymentMethodPage },
     Login: { screen: LoginPage },
     Portfolio: { screen: PortfolioPage },
@@ -37,7 +36,9 @@ const App = SwitchNavigator({
     Settings: { screen: SettingsPage },
     NavigationTest: { screen: NavigationTestPage },
     Details: { screen: DetailsPage },
-    AddPaymentMethod: { screen: AddPaymentMethodPage }
+    AddPaymentMethod: { screen: AddPaymentMethodPage },
+    AddCard: {screen: AddCardPage}
+
 });
 
 export default App;
