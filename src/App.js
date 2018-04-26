@@ -20,8 +20,13 @@ import TransactionsPage from "./screens/TransactionsPage";
 import NavigationTestPage from "./screens/NavigationTestPage";
 import DetailsPage from "./screens/DetailsPage";
 import CreditCardsPage from "./screens/CreditCardsPage";
+import AddPaymentMethodPage from "./screens/AddPaymentMethodPage";
+import AddCardPage from "./screens/AddCardPage";
 
 const App = SwitchNavigator({
+    
+    AddCard: {screen: AddCardPage},  
+    AddPaymentMethod: { screen: AddPaymentMethodPage },
     Login: { screen: LoginPage },
     Portfolio: { screen: PortfolioPage },
     CreditCards: { screen: CreditCardsPage },
@@ -31,7 +36,8 @@ const App = SwitchNavigator({
     Transactions: { screen: TransactionsPage },
     Settings: { screen: SettingsPage },
     NavigationTest: { screen: NavigationTestPage },
-    Details: { screen: DetailsPage }
+    Details: { screen: DetailsPage },
+    AddPaymentMethod: { screen: AddPaymentMethodPage }
 });
 
 export default App;

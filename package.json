@@ -12,28 +12,28 @@
         "runandroid": "react-native run-android"
     },
     "dependencies": {
+        "native-base": "^2.4.2",
         "react": "^16.3.2",
-        "native-base": "^2.3.10",
-        "react-native": "^0.55.2",
+        "react-native": "^0.55.3",
         "react-native-easy-grid": "^0.1.17",
+        "react-native-fontawesome": "^5.7.0",
+        "react-native-gridview": "^0.1.1",
         "react-native-vector-icons": "^4.6.0",
-        "react-navigation": "^1.5.11"
+        "react-navigation": "^1.5.11",
+        "yarn-upgrade-all": "^0.3.0"
     },
     "devDependencies": {
-        "babel-eslint": "^8.1.1",
         "babel-core": "^6.26.0",
-        "babel-jest": "22.4.3",
+        "babel-eslint": "^8.2.3",
+        "babel-jest": "^22.4.3",
         "babel-preset-react-native": "4.0.0",
         "eslint": "^4.19.1",
-        "eslint-plugin-flowtype": "^2.42.0",
-        "eslint-plugin-import": "^2.8.0",
-        "eslint-plugin-jest": "^21.7.0",
+        "eslint-plugin-flowtype": "^2.46.3",
+        "eslint-plugin-import": "^2.11.0",
+        "eslint-plugin-jest": "^21.15.1",
         "eslint-plugin-jsx-a11y": "^6.0.3",
-        "eslint-plugin-react": "^7.6.0",
-        "flow-bin": "^0.67.1",
-        "jest": "22.4.3",
-        "npm-run-all":"^4.1.2",
-        "react-test-renderer": "16.3.1"
+        "eslint-plugin-react": "^7.7.0",
+        "flow-bin": "^0.67.1"
     },
     "jest": {
         "preset": "react-native"

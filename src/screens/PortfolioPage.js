@@ -66,7 +66,7 @@ class PortfolioPage extends React.Component<Props>
                     style={{
                       padding: 10,
                     }}>
-                    <Button success block title={ADDMETHOD} onPress={() => navigate('Portfolio')}>
+                    <Button success block title={ADDMETHOD} onPress={() => navigate('AddPaymentMethod')}>
                         <Text>{ADDMETHOD}</Text>
                     </Button>
                 </View>
